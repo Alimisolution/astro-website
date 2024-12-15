@@ -1,13 +1,3 @@
-
-
-
-
-
-
-
-
-
-
 ---
 import { Image } from 'astro:assets';
 import Logo from '../images/logo.svg';
@@ -22,49 +12,37 @@ import Logo from '../images/logo.svg';
       </a>
     </div>
     <nav>
-      <ul>
+      <ul class="desktop-nav">
         <li><a href="/">Home</a></li>
         <li><a href="/about">About</a></li>
         <li><a href="/blog">Blog</a></li>
       </ul>
     </nav>
+    <p class="hamburger"> &#9776</p>
+    <ul class="mobile-nav">
+      <p class="close">&times;</p>
+      <div>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/blog">Blog</a></li>
+      </div>
+    </ul>
   </div>
 </header>
 
 
 
+<script>
+  const hamburger = document.querySelector(".hamburger");
+  const close = document.querySelector(".close");
+  const mobileNav = document.querySelector(".mobile-nav")
 
-    <style>
-    
+  hamburger.addEventListener('click', () =>{
+    mobileNav.classList.add('toggle')
+  })
 
-.header {
-  height: 70px;
-  background: var(--color-primary);
-}
+  close.addEventListener('click', () =>{
+    mobileNav.classList.remove('toggle')
+  })
+</script>
 
-.header .container {
-  height: 100%;
-  display: flex;
-  align-items: center;;
-  justify-content: space-between;
-  padding: 0 20px;
-}
-
-.header img {
-  height: 35px;
-  vertical-align: middle;
-}
-
-.header nav ul {
-  display: flex;
-}
-
-.header nav ul li {
-  padding: 0 10px;
-}
-
-.header nav ul li a {
-  color: #fff;
-}
-
-    </style>
